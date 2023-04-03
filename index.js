@@ -1,5 +1,7 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  //The sum of any two numbers in my array should be equal to the target.
+  //example ([1,4,5,7], 8) should return true while ([1,4,5,7], 6) should return false
 }
 
 /* 
@@ -32,3 +34,16 @@ if (require.main === module) {
 }
 
 module.exports = hasTargetSum;
+
+function hasTargetSum(array, target) {
+  const complements = new Set();
+  for (const num of array) {
+    if (complements.has(num)) {
+      return true;
+    }
+    complements.add(target - num);
+  }
+  return false;
+}
+
+
